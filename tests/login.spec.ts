@@ -1,4 +1,5 @@
 import { test, expect } from '../fixtures/fixture';
+import { env } from '../utils/env'
 
 test.use({
     storageState: {
@@ -12,8 +13,8 @@ test('User can login', async ({ loginPage }) => {
     await loginPage.goto();
 
     await loginPage.login(
-        'testuser@quickkart.com',
-        'Test@123'
+        env.email,
+        env.password
     );
 
 });
