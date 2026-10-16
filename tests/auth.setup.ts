@@ -1,18 +1,26 @@
 
-import { test as setup } from '@playwright/test';
+import { test as setup ,expect} from '@playwright/test';
 import { LoginPage } from '../pages/LoginPage';
+import { env } from '../utils/env';
 
 const authFile = 'playwright/.auth/user.json';
 
-setup('authenticate',async({page})=>{
+setup('authenticate', async ({ page }) => {
 
-    const loginPage= new LoginPage(page);
+    const loginPage = new LoginPage(page);
 
     await loginPage.goto();
 
-    await loginPage.login('testuser@quickkart.com','Test@123');
+    await loginPage.login(
+        env.email,
+        env.password
+    );
 
-    await page.context().storageState({path: authFile});
+    await expect(page.getByText('Hi, Test')).toBeVisible();
+
+    await page.context().storageState({ path: authFile });
+
+    await page.context().storageState({ path: authFile });
 
 
 });

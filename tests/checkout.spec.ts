@@ -1,6 +1,6 @@
 
 import { test, expect } from '../fixtures/fixture';
-import { CheckoutPage } from '../pages/CheckOutPage';
+
 
 test('complete checkout with delivery address', async ({
     cartWithProduct,

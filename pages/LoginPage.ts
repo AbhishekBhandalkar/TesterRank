@@ -1,6 +1,6 @@
 
 import { BasePage } from "./BasePage"; 
-import {type test,type Page, Locator} from '@playwright/test';
+import {type Page, Locator} from '@playwright/test';
 import { URLs } from '../constants/urls';
 
 // Page object for the login screen.

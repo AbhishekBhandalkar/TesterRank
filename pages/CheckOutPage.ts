@@ -1,5 +1,6 @@
 import { type Page, Locator ,expect} from '@playwright/test';
 import { BasePage } from './BasePage';
+import { URLs } from '../constants/urls';
 
 export class CheckoutPage extends BasePage {
 
@@ -58,7 +59,7 @@ export class CheckoutPage extends BasePage {
     }
 
     async gotoCheckout() {
-        await this.page.goto('https://www.testerrank.com/shopping/checkout');
+        await this.page.goto(URLs.checkout);
     }
     async fillDeliveryAddress(
         name: string,

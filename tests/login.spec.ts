@@ -8,13 +8,14 @@ test.use({
     }
 });
 
-test('User can login', async ({ loginPage }) => {
+test('User can login', async ({ loginPage,page }) => {
 
-    await loginPage.goto();
+   await loginPage.goto();
 
     await loginPage.login(
         env.email,
         env.password
     );
+    await expect(page.getByText('Hi, Test')).toBeVisible();
 
 });
